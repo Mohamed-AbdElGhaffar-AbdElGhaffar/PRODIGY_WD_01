@@ -1,0 +1,1179 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mulish", sans-serif;
+    scroll-behavior: smooth;
+}
+:root{
+    --text-color: #462E6A;
+    --bg-color: #fff;
+    --bg-header: #eae6e6;
+    --link-color: #1F1534;
+    --link-hover-color: #2E4E92;
+    --h1-home: #3C567B;
+    --text-home-color: #93C1F9;
+    --btn-bg-color: #458FF6;
+    --btn-color: #fff;
+    --pargraph-color: #7D7987;
+
+}
+
+.container{
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+    width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #E5E5E5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-home-color);
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+
+// <--- Header Start --->
+
+header{
+    background: var(--bg-header);
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .list-darkmode-menu{
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+
+            ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                font-size: 18px;
+                list-style: none;
+                margin: 0;
+                z-index: 1;
+
+                li{
+                    a{
+                        position: relative;
+                        text-decoration: none;
+                        color: var(--link-color);
+                        font-size: 18px;
+                        font-weight: 500;
+                        transition: 0.3s ease;
+                        animation: slideAnimation 1s ease forwards;
+                        animation-delay: calc(0.3s * var(--i));
+                        opacity: 0;
+
+                        &:hover, &.active{
+                            color: var(--link-hover-color);
+                            
+
+                            &::before{
+                                width: 100%;
+                            }
+                        }
+                        &.active{
+                            text-shadow: none;
+                        }
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            bottom: -7px;
+                            left: 0;
+                            width: 0;
+                            height: 2.5px;
+                            background: var(--link-hover-color);
+                            transition: 0.3s ease;
+                        }
+                    }
+                }
+            }
+
+            
+            .buttonList{
+                position: relative;
+                width: 30px;
+                cursor: pointer;
+                appearance: none;
+                border: none;
+                outline: none;
+                background: none;
+                scale: 0.9;
+                display: none;
+
+                .bar, &::after, &::before{
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 3px;
+                    background: var(--link-color);
+                    margin: 6px 0;
+                    transition: 0.4s;
+                }
+
+                &.active::before{
+                    transform: rotate(-45deg) translate(-8px, 5px);
+                }
+
+                &.active::after{
+                    transform: rotate(45deg) translate(-8px, -5px);
+                }
+
+                &.active .bar{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideAnimation{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// <--- Header End --->
+
+// <--- Home Start --->
+
+.home{
+    background: var(--bg-color);
+    width: 100%;
+    height: 90vh;
+    padding: 100px 0 0px;
+
+    .home-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left{
+            flex: 1;
+
+            h1{
+                font-style: normal;
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 56px;
+                color: var(--h1-home);
+                mix-blend-mode: normal;
+            }
+            p{
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 19px;
+                line-height: 27px;
+                letter-spacing: 0.02em;
+                color: var(--text-home-color);
+                mix-blend-mode: normal;
+                padding-top: 1.5rem;
+            }
+            button{
+                background: var(--btn-bg-color);
+                color: var(--btn-color);
+                border-radius: 55px;
+                width: 200px;
+                height: 68px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 60px;
+                mix-blend-mode: normal;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: 0.5s;
+                margin-top: 3rem;
+
+                &:hover{
+                    background: var(--btn-color);
+                    color: var(--btn-bg-color);
+                    border: 1px solid var(--btn-bg-color);
+                }
+            }
+
+            
+        }
+
+        .right{
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: end;
+
+            img{
+                height: 400px;
+                object-fit: cover;
+                object-position: top;
+                cursor: pointer;
+                transition: 0.3s ease;
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+// <--- Home End --->
+
+// <--- Services Start --->
+.services{
+    background: var(--bg-color);
+    width: 100%;
+    overflow: hidden;
+    padding: 100px 0 50px;
+
+    .secondBg{
+        bottom: 0;
+    }
+    .thirdBg{
+        display: none;
+    }
+    h2{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 56px;
+        text-align: center;
+        color: var(--text-color);
+        mix-blend-mode: normal;
+        margin-bottom: 0;
+    }
+
+    .line{
+        width: 56px;
+        height: 3px;
+        background-color: #000;
+        margin: auto;
+    }
+
+    p{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 27px;
+        letter-spacing: 0.02em;
+        color: #CCD2E9;
+    }
+
+    .services-info{
+        position: relative;
+        z-index: 5;
+        padding-top: 100px;
+        .box{
+            width: 350px;
+            height: 300px;
+            background: #FFFFFF;
+            box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            cursor: pointer;
+
+            .icon{
+                width: 80px;
+                height: 80px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.5s;
+                }
+            }
+            &:hover{
+                .icon{
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            h3{
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 56px;
+                margin-bottom: 0;
+                color: #000;
+            }
+
+            p{
+                font-family: 'Mulish';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--pargraph-color);
+            }
+        }
+        
+        button{
+            background: var(--btn-color);
+            color: var(--btn-bg-color);
+            border-radius: 55px;
+            width: 175px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 19px;
+            line-height: 60px;
+            mix-blend-mode: normal;
+            border: 1px solid var(--btn-bg-color);
+            outline: none;
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover{
+                background: var(--btn-bg-color);
+                color: var(--btn-color);
+                border: none;
+            }
+        }
+    }
+}
+
+// <--- Services End --->
+
+// <--- Section Features Start --->
+.features {
+    background-image: url(../img/counters-bg.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 120, 255,0.5 );
+        z-index: 1;
+    }
+    .feature{
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        padding-top: 20px;
+        z-index: 2;
+        &:first-child:hover {
+            i {
+                animation: Percentage-movement 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+            }
+        }
+        &:nth-child(2):hover{
+            i{
+                animation: flying-plane 3s cubic-bezier(0.1, 0.14, 1, 0.43) infinite;
+            }
+        }
+        &:nth-child(3):hover{
+            i {
+                animation: rotate-animation 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+            }
+        }
+        &:last-child:hover{
+            i {
+                animation: Launch 3s ease-in-out infinite;
+            }
+        }
+        i{
+            color: #ffffffe6 !important;
+        }
+        h3{
+            font-style: normal;
+            font-size: 20px !important;
+            line-height: 56px;
+            color: var(--bg-color);
+        }
+    }
+}
+
+@keyframes Percentage-movement {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: translateY(-10px);
+    }
+    13%,
+    38%,
+    63%,
+    83% {
+        transform: translateY(0px);
+    }
+}
+@keyframes flying-plane {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    30% {
+        transform: translate(-10px, 25px);
+    }
+    35%,
+    100% {
+        transform: translate(250px, -400px);
+    }
+}
+@keyframes rotate-animation {
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    75% {
+        transform: rotate(135deg);
+    }
+    100% {
+        transform: rotate(185deg);
+    }
+}
+@keyframes Launch {
+    0% {
+        position: relative;
+        top: 0;
+        transform: rotate(0);
+    }
+    25% {
+        position: relative;
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    40% {
+        position: relative;
+        top: -5000px;
+    }
+}
+// <--- Section features End --->
+
+// <--- App Start --->
+.app{
+    background: var(--bg-color);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 100px 0 50px;
+
+    .background{
+        right: 0;
+        top: 0;
+    }
+
+    .services-info{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        .left{
+            flex: 1;
+
+            h1{
+                font-style: normal;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 48px;
+                color: var(--text-color);
+                mix-blend-mode: normal;
+                padding-bottom: 10px;
+            }
+            .line{
+                width: 100px;
+                height: 2px;
+                background: #000000;
+                border-radius: 6px;
+            }
+            p{
+                font-family: 'Mulish';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 30px;
+                color: var(--pargraph-color);
+                padding-top: 1.5rem;
+            }
+            button{
+                background: var(--btn-color);
+                color: var(--btn-bg-color);
+                border-radius: 55px;
+                width: 200px;
+                height: 68px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 60px;
+                mix-blend-mode: normal;
+                border: 1px solid var(--btn-bg-color);
+                outline: none;
+                cursor: pointer;
+                transition: 0.5s;
+                margin-top: 3rem;
+
+                i{
+                    padding-left: 10px;
+                }
+
+                &:hover{
+                    background: var(--btn-bg-color);
+                    color: var(--btn-color);
+                    border: none;
+                }
+            }
+
+            
+        }
+
+        .right{
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: end;
+
+            img{
+                height: 400px;
+                object-fit: cover;
+                object-position: top;
+                position: relative;
+            }
+        }
+    }
+}
+// <--- App End --->
+
+// <--- Find Doctor Start --->
+.doctor{
+    background: var(--bg-color);
+    width: 100%;
+    padding: 100px 0 50px;
+    .FindDoctor-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .left{
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: start;
+
+            img{
+                height: 400px;
+                object-fit: cover;
+                object-position: top;
+                cursor: pointer;
+                transition: 0.3s ease;
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .right{
+            flex: 1;
+
+            h1{
+                font-style: normal;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 48px;
+                color: var(--text-color);
+                mix-blend-mode: normal;
+                padding-bottom: 10px;
+            }
+            .line{
+                width: 100px;
+                height: 2px;
+                background: #000000;
+                border-radius: 6px;
+            }
+            p{
+                font-family: 'Mulish';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 30px;
+                color: var(--pargraph-color);
+                padding-top: 1.5rem;
+            }
+            button{
+                background: var(--btn-color);
+                color: var(--btn-bg-color);
+                border-radius: 55px;
+                width: 200px;
+                height: 68px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 60px;
+                mix-blend-mode: normal;
+                border: 1px solid var(--btn-bg-color);
+                outline: none;
+                cursor: pointer;
+                transition: 0.5s;
+                margin-top: 2rem;
+
+                i{
+                    padding-left: 10px;
+                }
+
+                &:hover{
+                    background: var(--btn-bg-color);
+                    color: var(--btn-color);
+                    border: none;
+                }
+            }
+
+            
+        }
+
+    }
+}
+// <--- Find Doctor End --->
+
+// <--- Footer Start --->
+footer{
+    background-color: rgba(104, 136, 200, 1);
+    padding: 20px;
+    p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 28px;
+        color: #fff;
+        padding-top: 10px;
+        a{
+            font-family: 'Mulish';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 30px;
+            color: #fff;
+        }
+    }
+    .links{
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: var(--btn-bg-color);
+            width: 60px;
+            height: 60px;
+            transition: 500ms;
+            border: none;
+            text-decoration: none;
+            margin-left: 20px;
+            
+            i{
+                color: var(--bg-color);
+                font-size: 24px;
+            }
+            &:hover{
+                background-color: var(--bg-color);
+                border: 3px solid var(--btn-bg-color);
+                i{
+                    color: var(--btn-bg-color);
+                }
+            }
+        }
+    }
+}
+// <--- Footer End --->
+
+// <--- Responsive --->
+
+@media screen and (max-width:1300px) {
+    .container{
+        max-width: 1250px;
+    }
+
+    header{
+        nav{
+            padding: 0 50px;
+        }
+    }
+
+    .home{
+        padding: 100px 50px 15px 50px;
+        min-height: 100vh;
+        .home-info{
+            .left{
+                flex: 1;
+    
+                h1{
+                    font-size: 35px;
+                    line-height: 40px;
+                }
+                button{
+                    width: 175px;
+                    height: 60px;
+                    font-size: 18px;
+                    margin-top: 1.5rem;
+                }
+            }
+            .right{
+                justify-content: center;
+                img{
+                    // width: 350px;
+                    height: 300px;
+                }
+            }
+        }
+    }
+    .services{
+        .container{
+            padding: 0 50px;
+        }
+        
+    }
+    .app{
+        padding: 0 50px;
+        min-height: 100vh;
+        .background{
+            width: 600px;
+            right: 0;
+            top: auto;
+        }
+
+        .services-info{
+            .right{
+                img{
+                    height: 350px;
+                }
+            }
+        }
+    }
+    .doctor{
+        padding: 0 50px;
+        padding-bottom: 50px;
+        .FindDoctor-info{
+            .left{
+                img{
+                    // width: 350px;
+                    height: 300px;
+                }
+            }
+            .right{
+                h1{
+                    font-size: 35px;
+                    line-height: 40px;
+                }
+                button{
+                    width: 175px;
+                    height: 60px;
+                    font-size: 18px;
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1150px){
+    .features{
+        .feature{
+            h3{
+                font-size: 17px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width:991.98px){
+    header{
+        background: var(--bg-header);
+        position: sticky;
+        top: 0;
+        z-index: 9;
+
+        nav{
+            .list-darkmode-menu{
+                ul{
+                    position: fixed;
+                    top: 89px;
+                    left: -220px;
+                    max-width: 215px;
+                    width: 100%;
+                    height: 100vh;
+                    background: var(--bg-header);
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    padding: 30px 50px;
+                    gap: 30px;
+                    transition: 0.3s ease;
+
+                    li{
+                        a{
+                            font-style: 22px;
+                        }
+                    }
+
+                    &.active{
+                        left: 0;
+                    }
+                }
+
+                .buttonList{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .home{
+        position: relative;
+        padding: 30px 50px;
+        height: 100%;
+        z-index: 0;
+
+        .home-info{
+            flex-direction: column-reverse;
+
+            .left{
+                padding-top: 50px;
+            }
+
+            .right{
+                width: 100%;
+                img{
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+    .features{
+        .feature{
+            h3{
+                font-size: 20px !important;
+            }
+        }
+    }
+
+    .app{
+        padding: 0 50px;
+        height: auto;
+        min-height: auto;
+        .background{
+            display: none;
+        }
+
+        .services-info{
+            flex-direction: column-reverse;
+            .left{
+                button{
+                    margin-top: 1rem;
+                    margin-bottom: 1.5rem;
+                }
+            }
+            .right{
+                width: 100%;
+                justify-content: center !important;
+                img{
+                    height: 350px;
+                }
+            }
+        }
+    }
+    .doctor{
+        padding: 50px;
+        .FindDoctor-info{
+            flex-direction: column;
+            .left{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                img{
+                    // width: 350px;
+                    height: 300px;
+                }
+            }
+            .right{
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px){
+    header{
+        nav{
+            padding: 0 30px;
+
+            .list-darkmode-menu{
+                ul{
+                    padding: 30px 0 0 30px;
+
+                    li{
+                        a{
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .services{
+        svg{
+            width: 100%;
+            height: 800px;
+        }
+        .secondBg{
+           
+            bottom: 0;
+            display: block;
+        }
+        .thirdBg{
+            bottom: 30%;
+            transform: rotate(180deg);
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width:567px){
+    header{
+        nav{
+            .logo{
+                a{
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+
+    .home{
+        .home-info{
+            .left{
+                h1{
+                    font-size: 30px;
+                    text-align: center;
+                }
+                button{
+                    margin: 0 auto;
+                    margin-top: 1.5rem;
+                }
+            }
+
+            .right{
+                img{
+                    height: 250px;
+                }
+            }
+        }
+    }
+    .app{
+        .services-info{
+            .left{
+                text-align: center;
+                h1{
+                    font-size: 25px;
+                }
+                .line{
+                    margin: auto;
+                }
+                button{
+                    margin: auto;
+                }
+            }
+            .right{
+                width: 100%;
+                img{
+                    height: 285px;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+    .doctor{
+        .FindDoctor-info{
+            .left{
+                img{
+                    height: 270px;
+                }
+            }
+            .right{
+                h1{
+                    font-size: 30px;
+                }
+                button{
+                    margin: auto;
+                }
+            }
+        }
+    }
+    footer{
+        img{
+            width: 180px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 28px;
+            a{
+                font-size: 16px;
+            }
+        }
+        .links{
+            a{
+                width: 45px;
+                height: 45px;
+                i{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 380px){
+    .home{
+        padding: 0px 50px;
+        height: auto;
+        min-height: auto;
+        .home-info{
+            .left{
+                flex: 1;
+    
+                h1{
+                    font-size: 28px;
+                    line-height: 40px;
+                }
+                p{
+                    text-align: center;
+                }
+            }
+            .right{
+                img{
+                    height: 175px;
+                }
+            }
+        }
+    }
+    .services{
+        
+        h2{
+            font-size: 30px;
+        }
+    }
+    .app{
+        .services-info{
+            .left{
+                h1{
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                p{
+                    font-size: 15px;
+                    line-height: 22px;
+                }
+                button{
+                    width: 175px;
+                    height: 55px;
+                    font-size: 18px;
+                }
+            }
+            .right{
+                img{
+                    height: 195px;
+                }
+            }
+        }
+    }
+    .doctor{
+        .FindDoctor-info{
+            .left{
+                img{
+                    height: 192px;
+                }
+            }
+            .right{
+                h1{
+                    font-size: 23px;
+                    line-height: 40px;
+                }
+                .line{
+                    margin: auto;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 23px;
+                }
+                button{
+                    width: 175px;
+                    height: 55px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    footer{
+        img{
+            width: 180px;
+        }
+        p{
+            font-size: 12px;
+            a{
+                font-size: 13px;
+            }
+        }
+        .links{
+            padding-bottom: 20px;
+            a{
+                width: 40px;
+                height: 40px;
+                i{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
